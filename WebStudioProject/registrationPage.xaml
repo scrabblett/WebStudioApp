@@ -1,0 +1,54 @@
+﻿<Page x:Class="WebStudioProject.registrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WebStudioProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="registrationPage">
+    <StackPanel Background="{StaticResource WindowBackground}">
+        <Grid Height="285" Margin="174,100,155,200">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" FontSize="16" 
+                       HorizontalAlignment="Left" FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium"> Логин</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="1" FontSize="16" 
+                       HorizontalAlignment="Left" FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium"> Пароль</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="2" FontSize="16" 
+                       HorizontalAlignment="Left" FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium"> Имя </TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="3" FontSize="16" 
+                       HorizontalAlignment="Left" FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium"> Фамилия</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="4" FontSize="16" 
+                       HorizontalAlignment="Left" FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium"> Дата рождения</TextBlock>
+            <TextBox Name="tBxLogin" Grid.Column="1" Height="30" Grid.Row="0" Width="220"></TextBox>
+            <PasswordBox Name="passBx" Grid.Column="1" Height="30" Grid.Row="1" Width="220"></PasswordBox>
+            <TextBox Name="tBxName" Grid.Column="1" Grid.Row="2" Height="30" Width="220"></TextBox>
+            <TextBox Name="tBxSurname" Grid.Column="1" Height="30" Grid.Row="3" Width="220"></TextBox>
+            <DatePicker Grid.Row="4" Grid.Column="1" Height="30" Width="220" IsDropDownOpen="False" SelectedDateFormat="Short" Name="dpAdmin"></DatePicker>
+            <!--<ComboBox Name="cBxSpeciality" Grid.Column="1" Grid.Row="4" Height="30" Width="220">
+                <TextBlock> C# developer </TextBlock>
+                <TextBlock> JS developer</TextBlock>
+                <TextBlock> PHP developer</TextBlock>
+                <TextBlock> Delphy developer</TextBlock>
+                <TextBlock> Ruby developer</TextBlock>
+                <TextBlock> Java developer</TextBlock>
+                <TextBlock> Graphic Designer</TextBlock>
+            </ComboBox>-->
+            <Button Name="btnRegistration" Grid.Column="0" Grid.Row="5"
+            Grid.ColumnSpan="2" Width="170" Height="30"
+            Click="btnRegistration_Click">Зарегистрироваться</Button>
+
+        </Grid>
+    </StackPanel>
+</Page>

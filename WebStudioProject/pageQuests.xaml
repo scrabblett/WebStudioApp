@@ -1,0 +1,133 @@
+﻿<Page x:Class="WebStudioProject.pageQuests"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WebStudioProject"
+      xmlns:core="clr-namespace:WebStudioProject.Model"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1350"
+      Title="pageQuests">
+
+    <Page.Resources>
+        <DataTemplate x:Key="DateTemplateStart" >
+            <TextBlock Text="{Binding ФактВремяНачала,
+             StringFormat={}{0:dd\.}{0:MM\.}{0:yyyy}}"
+             VerticalAlignment="Center"
+             HorizontalAlignment="Center"/>
+        </DataTemplate>
+        <DataTemplate x:Key="EditingDateTemplateStart">
+            <DatePicker SelectedDate="{Binding ФактВремяНачала,
+                Mode=TwoWay,
+                UpdateSourceTrigger=PropertyChanged}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="DateTemplateEnd" >
+            <TextBlock Text="{Binding ФактВремяЗавершения,
+             StringFormat={}{0:dd\.}{0:MM\.}{0:yyyy}}"
+             VerticalAlignment="Center"
+             HorizontalAlignment="Center"/>
+        </DataTemplate>
+        <DataTemplate x:Key="EditingDateTemplateEnd">
+            <DatePicker SelectedDate="{Binding ФактВремяЗавершения,
+                Mode=TwoWay,
+                UpdateSourceTrigger=PropertyChanged}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="DateTemplateDeadline" >
+            <TextBlock Text="{Binding КрайнийСрокВыполненияРаботы,
+             StringFormat={}{0:dd\.}{0:MM\.}{0:yyyy}}"
+             VerticalAlignment="Center"
+             HorizontalAlignment="Center"/>
+        </DataTemplate>
+        <DataTemplate x:Key="EditingDateTemplateDeadline">
+            <DatePicker SelectedDate="{Binding КрайнийСрокВыполненияРаботы,
+                Mode=TwoWay,
+                UpdateSourceTrigger=PropertyChanged}"/>
+        </DataTemplate>
+        <core:ListWorks x:Key="listWorks"/>
+    </Page.Resources>
+    <StackPanel Background="{StaticResource WindowBackground}">
+        <Grid Name="base">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="160"></ColumnDefinition>
+                <ColumnDefinition Width="1120"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" 
+                       FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium">Задания по проектам</TextBlock>
+            <Grid Name="secondary" Grid.Row="1" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Frame Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Width="140">
+                    <Frame.Content>
+                        <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" FontSize="16"
+                                   FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium">Меню</TextBlock>
+                    </Frame.Content>
+                </Frame>
+                <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" FontSize="14" Width="140"
+                        FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium" Click="btnAdd_click">Добавить</Button>
+                <Button Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" FontSize="14" Width="140"
+                        FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium" Click="btnEdit_click">Редактировать</Button>
+                <Button Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" FontSize="14" Width="140"
+                        FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium" Click="btnDelete_click">Удалить</Button>
+                <Button Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" FontSize="14" Width="140"
+                        FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium" Click="btnSave_click">Сохранить</Button>
+            </Grid>
+            <DataGrid Grid.Row="1" Grid.Column="1"
+                          Name="dataGridOrders"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding}"
+                          Cursor="Hand">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Номер заказа" 
+                                        Binding="{Binding КодЗаказа,
+                        Mode=TwoWay,
+                        UpdateSourceTrigger=PropertyChanged}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Номер исполнителя" 
+                                        Binding="{Binding КодИсполнителя,
+                        Mode=TwoWay,
+                        UpdateSourceTrigger=PropertyChanged}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Порядковый номер работы" 
+                                        Binding="{Binding ПорядковыйНомер,
+                        Mode=TwoWay,
+                        UpdateSourceTrigger=PropertyChanged}">
+                    </DataGridTextColumn>
+                    <DataGridComboBoxColumn
+                        Header="Вид работы"
+                        ItemsSource="{Binding Source={StaticResource listWorks}}"
+                        DisplayMemberPath="Название"
+                        SelectedValueBinding="{Binding Path=КодРаботы,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                        SelectedValuePath="КодРаботы">
+                    </DataGridComboBoxColumn>
+                    <DataGridTemplateColumn Header="Дата старта работ"
+                                            CellTemplate="{StaticResource DateTemplateStart}"
+                                            CellEditingTemplate="{StaticResource EditingDateTemplateStart}">
+
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Дата завершения работ"
+                                            CellTemplate="{StaticResource DateTemplateEnd}"
+                                            CellEditingTemplate="{StaticResource EditingDateTemplateEnd}">
+
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Дедлайн"
+                                            CellTemplate="{StaticResource DateTemplateDeadline}"
+                                            CellEditingTemplate="{StaticResource EditingDateTemplateDeadline}">
+
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </StackPanel>
+</Page>

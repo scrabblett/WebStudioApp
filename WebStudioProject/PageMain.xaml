@@ -1,0 +1,36 @@
+﻿<Page x:Class="WebStudioProject.PageMain"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WebStudioProject"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="800"
+      Title="PageMain">
+    <StackPanel Background="{StaticResource WindowBackground}">
+        <Grid Name="registrationGrid" Height="258" Margin="192,100,192,200">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" FontSize="20" 
+                       HorizontalAlignment="Center" FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium">Авторизация</TextBlock>
+            <TextBlock Grid.Column="0" Grid.Row="1" FontSize="16" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium">Логин</TextBlock>
+            <TextBox Grid.Column="0" Grid.Row="1" Height="30" Width="220" Name="tBxLogin" VerticalContentAlignment="Center"></TextBox>
+            <TextBlock Grid.Column="0" Grid.Row="2" FontSize="16"
+                       HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium">Пароль</TextBlock>
+            <PasswordBox Grid.Column="0" Grid.Row="2" Width="220" Height="30" Name="passBox" VerticalContentAlignment="Center"></PasswordBox>
+            <Button Grid.Column="0" Grid.Row="3" Content="OK" Width="150" Height="30" Click="btnOk_click"></Button>
+            <Button Grid.Column="0" Grid.Row="4" Content="Регистрация" Width="150" Height="30" Click="btnRegistration_click" Cursor="Hand"></Button>
+        </Grid>
+    </StackPanel>
+</Page>
+

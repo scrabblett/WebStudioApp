@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6608b8723536410b8c240e14f9422121" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="WebStudioModel.sysdiagrams" Width="1.5" PointX="4.875" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebStudioModel.Задание" Width="1.5" PointX="5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebStudioModel.Заказ" Width="1.5" PointX="3.125" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebStudioModel.Заказчик" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebStudioModel.Исполнитель" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebStudioModel.Пользователь" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebStudioModel.Работа" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <AssociationConnector Association="WebStudioModel.R_16" ManuallyRouted="false" />
+        <AssociationConnector Association="WebStudioModel.R_6" ManuallyRouted="false" />
+        <AssociationConnector Association="WebStudioModel.R_7" ManuallyRouted="false" />
+        <AssociationConnector Association="WebStudioModel.R_14" ManuallyRouted="false" />
+        <AssociationConnector Association="WebStudioModel.FK_Исполнитель_Пользователь" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WebStudioModel.Администратор" Width="1.5" PointX="7.25" PointY="7.75" />
+        <AssociationConnector Association="WebStudioModel.FK_Администратор_Пользователь" />
+        <EntityTypeShape EntityType="WebStudioModel.Специальности" Width="1.5" PointX="4.875" PointY="9.125" />
+        <AssociationConnector Association="WebStudioModel.FK_Исполнитель_Специальность1" />
+        <EntityTypeShape EntityType="WebStudioModel.Статус" Width="1.5" PointX="0.75" PointY="8.875" />
+        <AssociationConnector Association="WebStudioModel.FK_Заказ_Статус" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

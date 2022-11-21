@@ -1,0 +1,52 @@
+﻿<Page x:Class="WebStudioProject.worksForWorkers"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WebStudioProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="worksForWorkers">
+
+    <StackPanel Background="{StaticResource WindowBackground}">
+        <Grid Name="base" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="610"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" 
+                       FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium">Перечень работ</TextBlock>
+            <Grid Name="secondary" Grid.Row="1" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <DataGrid Grid.Row="1" Grid.Column="1"
+                          Name="dataGridOrders"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding}"
+                          Cursor="Hand">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название работы" 
+                                        Binding="{Binding Название,
+                        Mode=TwoWay,
+                        UpdateSourceTrigger=PropertyChanged}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Стоимость работы" 
+                                        Binding="{Binding СтоимостьРаботы,
+                        Mode=TwoWay,
+                        UpdateSourceTrigger=PropertyChanged}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Длительность работы (в днях)" 
+                                        Binding="{Binding Длительность,
+                        Mode=TwoWay,
+                        UpdateSourceTrigger=PropertyChanged}">
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </StackPanel>
+</Page>

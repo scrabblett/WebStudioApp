@@ -1,0 +1,27 @@
+﻿<Application x:Class="WebStudioProject.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WebStudioProject"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <ImageBrush x:Key="WindowBackground" 
+                    ImageSource="D:\3 курс дистант\KURSACH\WebStudioApp\WebStudioProject\Resources\Background.jpg">
+            </ImageBrush>
+            <ImageBrush x:Key="gridBackground" 
+                    ImageSource="D:\3 курс дистант\KURSACH\WebStudioApp\WebStudioProject\Resources\Background2.jpg">
+            </ImageBrush>
+            <ImageBrush x:Key="gridBackground2" 
+                    ImageSource="D:\3 курс дистант\KURSACH\WebStudioApp\WebStudioProject\Resources\background3.jpg">
+            </ImageBrush>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
+
