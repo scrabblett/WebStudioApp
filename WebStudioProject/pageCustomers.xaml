@@ -29,6 +29,9 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Frame Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Width="140">
                     <Frame.Content>
@@ -43,7 +46,12 @@
                 <Button Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" FontSize="14" Width="140"
                         FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium" Click="btnDelete_click">Удалить</Button>
                 <Button Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" FontSize="14" Width="140"
-                        FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium" Click="btnSave_click">Сохранить</Button>
+                        FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium" Click="btnSave_click" Margin="0 0 0 10">Сохранить</Button>
+                <Button Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" FontSize="14" Width="140"
+                        FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium" Click="btnFind_click" Margin="0 10 0 0">Найти</Button>
+                <Button Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" FontSize="14" Width="140"
+                        FontFamily="Comic Sans" FontStyle="Normal" FontWeight="Medium" Click="btnReset_click">Сбросить поиск</Button>
+                <TextBox Grid.Row="4" Background="White" Width="140" Margin="0,43,20,41" Grid.RowSpan="3" Name="searchText"></TextBox>
             </Grid>
             <DataGrid Grid.Row="1" Grid.Column="1"
                           Name="dataGridOrders"

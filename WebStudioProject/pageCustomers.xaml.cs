@@ -95,5 +95,43 @@ namespace WebStudioProject
                 }
             }
         }
+
+        private void btnFind_click(object sender, RoutedEventArgs e)
+        {
+            var queryFind = from f in DataEntitiesWebStudio.Заказчик
+                            where searchText.Text ==  f.Фамилия
+                            select f;
+            ListCustomers.Clear();
+            foreach (Заказчик cst in queryFind)
+            {
+                ListCustomers.Add(cst);
+            }
+            dataGridOrders.ItemsSource = ListCustomers;
+            dataGridOrders.UpdateLayout();
+        }
+
+        private void GetCustomers()
+        {
+            var queryCustomer = from c in DataEntitiesWebStudio.Заказчик
+                                orderby c.КодЗаказчика
+                                select c;
+            foreach (Заказчик cst in queryCustomer)
+            {
+                ListCustomers.Add(cst);
+            }
+            dataGridOrders.ItemsSource = ListCustomers;
+        }
+
+        private void RewriteCustomer()
+        {
+            DataEntitiesWebStudio = new WebStudioEntities();
+            ListCustomers.Clear();
+            GetCustomers();
+        }
+
+        private void btnReset_click(object sender, RoutedEventArgs e)
+        {
+            RewriteCustomer();
+        }
     }
 }
