@@ -73,6 +73,7 @@ namespace WebStudioProject
             DataEntitiesWebStudio.SaveChanges();
             dataGridOrders.IsReadOnly = true;
             MessageBox.Show("Данные успешно сохранены.");
+            RewriteQuests();
         }
 
         private void btnDelete_click(object sender, RoutedEventArgs e)
@@ -94,6 +95,24 @@ namespace WebStudioProject
                     MessageBox.Show("Выберите строку для удаления");
                 }
             }
+        }
+        private void GetQuests()
+        {
+            var queryQuests = from w in DataEntitiesWebStudio.Задание
+                              orderby w.КодЗаказа
+                              select w;
+            foreach (Задание w in queryQuests)
+            {
+                ListQuests.Add(w);
+            }
+            dataGridOrders.ItemsSource = ListQuests;
+        }
+
+        private void RewriteQuests()
+        {
+            DataEntitiesWebStudio = new WebStudioEntities();
+            ListQuests.Clear();
+            GetQuests();
         }
     }
 }
